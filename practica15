@@ -1,0 +1,36 @@
+class Robot:
+    def __init__(self,nombre,modelo):
+        self.nombre = nombre
+        self.modelo = modelo
+        self.bateria = 100
+    def trabajar(self,horas):
+        if self.bateria >= 10*horas:
+            self.bateria -= 10*horas
+            print(f"{self.nombre} {self.modelo} esta tabajando")
+            print(f"{self.nombre} {self.modelo} le quedo {self.bateria}% de bateria")
+        else:
+            print("El robot ya estaba tabajando.")
+
+    def recargar(self,porcentaje):
+        self.bateria +=porcentaje
+        if self.bateria > 100:
+            self.bateria = 100
+            print("El robot se esta recargando.")
+        else:
+            print("El robot ya estaba cargando.")
+
+mi_robot= Robot("Quaso","GR10")
+
+print("----------MENU------------")
+print("1-Trabajar ," \
+    " 2-Recargar")
+opcion=int(input("ingrese 1 o 2: "))
+if opcion == 1:
+    horas=int(input("Cuantas horas quiere poner a trabajar?"))
+    mi_robot.trabajar(horas)
+elif opcion == 2:
+    porcentaje=int(input("cuanto quiere recargar?"))
+    mi_robot.recargar(porcentaje)
+else:
+    print("No es una opcion")
+    
